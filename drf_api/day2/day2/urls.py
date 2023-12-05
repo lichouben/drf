@@ -20,6 +20,8 @@ from api import views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('home/',views.home),
-    path('user/',views.UserView.as_view())
+    # path('home/',views.home),
+    path('user/',views.UserView.as_view()),
+    path('login/',views.loginView.as_view()),
+    path('order/',views.orderView.as_view()),
 ]

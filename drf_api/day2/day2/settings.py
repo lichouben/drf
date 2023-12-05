@@ -127,8 +127,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-# def配置
+# drf配置
 REST_FRAMEWORK= {
     # "UNAUTHENTICATED_USER": lambda : "xxx"
-    "UNAUTHENTICATED_USER": None
+    "UNAUTHENTICATED_USER": None,
+    # 全局设置用户登录
+    # "DEFAULT_AUTHENTICATION_CLASSES": ["ext.auth.myAuthentication",]
 }

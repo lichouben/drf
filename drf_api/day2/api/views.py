@@ -1,15 +1,30 @@
 from django.shortcuts import render,HttpResponse
 
 # Create your views here.
-def home(request):
-    return HttpResponse("成功")
-
-from rest_framework.views import APIView
-from rest_framework.response import Response
+# def home(request):
+    # return HttpResponse("成功")
 
 from rest_framework.request import Request
-class UserView(APIView):
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from ext.auth import myAuthentication
+class loginView(APIView):
+    authentication_classes = []
     def get(self,request):
-        print(request.user) #当前登录用户 -> 匿名用户
-        print(request.auth)
-        return Response("测试成功")
+        print(request.user,request.auth) #当前登录用户 -> 匿名用户
+        return Response("LoginView")
+    
+class UserView(APIView):
+    authentication_classes=[myAuthentication,]
+
+    def get(self,request):
+        print(request.user,request.auth) #当前登录用户 -> 匿名用户
+
+        return Response("UserView")
+
+    
+class orderView(APIView):
+    # authentication_classes=[myAuthentication,]
+    def get(self,request):
+        print(request.user,request.auth) #当前登录用户 -> 匿名用户
+        return Response("orderView")
